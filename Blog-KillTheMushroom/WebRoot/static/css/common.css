@@ -1,0 +1,25 @@
+
+/* actGotop */
+.actGotop {
+	position: fixed;
+	_position: absolute;
+	bottom: 30px;
+	right: 30px;
+	width: 80px;
+	height: 104px;
+	display: none;
+}
+
+.actGotop a,.actGotop a:link {
+	width: 80px;
+	height: 104px;
+	display: inline-block;
+	background: url(../images/blog7year_gotop.png) no-repeat;
+	_background: url(../images/blog7year_gotop.gif) no-repeat;
+	outline: none;
+}
+
+.actGotop a:hover {
+	background: url(../images/blog7year_gotopd.gif) no-repeat;
+	outline: none;
+}

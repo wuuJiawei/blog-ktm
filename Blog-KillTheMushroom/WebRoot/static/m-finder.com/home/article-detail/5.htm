@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="cmn-CN">
+    <head>
+        <meta charset=UTF-8"utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="M-finderåšå®¢ï¼Œlaravelï¼Œlayuiï¼ŒæŠ€æœ¯åˆ†äº«ï¼ŒåŸåˆ›"/>
+        <meta name="description" content="M-finder"/>
+        <meta name="csrf-token" content="GrrWtA1vTWDlXuXG42yHpPyrYd6Yvtav83BcGYKf">
+        <title>M-finder - åˆ ç¹å°±ç®€,å‘ç°æ›´å¤š</title>
+		<script src="../../public/js/layui/layui.js" tppabs="http://www.m-finder.com/public/js/layui/layui.js"></script>
+        <script src="../../public/js/jquery-3.2.1.min.js" tppabs="http://www.m-finder.com/public/js/jquery-3.2.1.min.js"></script>
+        <script src="../../public/js/common.js" tppabs="http://www.m-finder.com/public/js/common.js"></script>
+		<script src="../../public/js/home.js" tppabs="http://www.m-finder.com/public/js/home.js"></script>
+		<script src="../../public/js/musicplayer.js" tppabs="http://www.m-finder.com/public/js/musicplayer.js"></script>
+		
+        <link href="../../public/js/layui/css/layui.css" tppabs="http://www.m-finder.com/public/js/layui/css/layui.css" rel="stylesheet">
+        <link href="../../public/css/global.css" tppabs="http://www.m-finder.com/public/css/global.css" rel="stylesheet">
+        <link href="../../public/css/home.css" tppabs="http://www.m-finder.com/public/css/home.css" rel="stylesheet">
+        <link rel="icon" href="http://www.m-finder.com/public/favicon.ico"> 
+		
+    </head>
+    <body class="home blog ">
+
+        <div class="hfeed site">
+            <header id="header" class="home-header blog-background banner-mask">
+                <div class="nav-header container">       
+                    <div class="nav-header-container" >
+                                                <a class="back-home" href="../../index.htm" tppabs="http://www.m-finder.com/" data-id="1">åšå®¢é¦–é¡µ</a>
+                                                <a class="back-home" href="../category/2.htm" tppabs="http://www.m-finder.com/home/category/2" data-id="2">é—²è¨€èµ˜è¯­</a>
+                                                <a class="back-home" href="../category/3.htm" tppabs="http://www.m-finder.com/home/category/3" data-id="3">æŠ€æœ¯è®¨è®º</a>
+                                                <a class="back-home" href="../single-page/4.htm" tppabs="http://www.m-finder.com/home/single-page/4" data-id="4">å…³äº</a>
+                                            </div>            
+                </div>
+                <div class="header-wrap">
+                    <div class="container">
+                        <div class="home-info-container">
+                            <a href="../../index.htm" tppabs="http://www.m-finder.com/">
+                                <h2>M-finder</h2>
+                            </a>
+                            <h4 id="web_title_desc">åˆ ç¹å°±ç®€,å‘ç°æ›´å¤š</h4>
+                                                        <div class='log-box'>
+                                <a class="reg" href="../../register.htm" tppabs="http://www.m-finder.com/register">æ³¨å†Œ</a>
+                                <a class="login" href="../../login.htm" tppabs="http://www.m-finder.com/login">ç™»å½•</a>
+                            </div>
+                                                    </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="main layui-clear ">
+            
+<script id="comment_tpl" type="text/html">
+    <%# for(var i = 0; i < d.data.length; i++){ %>
+    <li id="comment-<% d.data[i].id %>"  class="comment even thread-even depth-1">
+        <article class="comment-body" id="comment">
+            <footer class="comment-meta">
+                <div class="comment-author vcard">
+                    <img src="<% d.data[i].avatar===null ? '/public/images/avatar/'+parseInt(11*Math.random()) +'.jpg' : d.data[i].avatar %>" width="64" height="64" alt="<% d.data[i].name %>" class="avatar avatar-42 wp-user-avatar wp-user-avatar-42 alignnone photo" />                    						
+                    <b class="fn"><% d.data[i].name %></b><span class="says">ï¼š</span>					
+                </div>
+                <div class="comment-metadata">
+                    <time datetime="<% d.data[i].creted_at %>"> <% layui.util.timeAgo(d.data[i].created_at) %> </time>
+                </div>
+            </footer>
+            <div class="comment-content">
+                <% d.data[i].content %>
+            </div>
+            <div class="reply">
+                <a rel="nofollow" class="comment-reply-link" href="javascript:void(0)" onclick="jump_comment(this)" data-uid="<% d.data[i].uid %>" data-name="<% d.data[i].name %>">å›å¤</a>
+            </div>
+        </article>
+    </li>
+    <%# } %>
+</script>
+
+<div id="main" class="content homepage" data-id="2" data-aid="5">  
+    <div class="content-area container">
+        <div class="site-content" id="article_content">
+            <div class="content-area container">
+                <header class="entry-header page-header">
+                    <h1 class="entry-title page-title">ä¸€ä¸å°å¿ƒå…¥äº†æ‰‹è´¦çš„å‘</h1>		
+                    <div class="entry-meta">
+                        <time class="entry-date published updated" datetime="2017-09-12 15:08:18">2017-09-12 15:08:18</time>			
+                        <span class="separator">/</span>
+                        314 é˜…		
+                        <span class="separator" >/</span>
+                        <span id='like_num'>6</span> èµ		
+                    </div>
+                </header>
+                <div class="site-content">
+                    <section class="post-content">
+                        <div class="single-post-inner grap detail-body photos">
+                            face[ç¤¼ç‰©] ä»Šå¹´çš„ä¸ƒå¤•ç¤¼ç‰© ğŸã€‚
+å¤§é¾„å„¿ç«¥åŸ¹å…»ä¸ªå…´è¶£ä¸å®¹æ˜“ã€‚
+å†™çš„æ˜¯å¥½æ˜¯åéƒ½æ— æ‰€è°“ï¼Œé‡è¦çš„æ˜¯åœ¨åšçš„è¿‡ç¨‹ï¼Œæˆ‘å†™çš„å¾ˆå¼€å¿ƒï¼Œè¿™å°±å¤Ÿäº†ã€‚
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-15-00-25-59b7f6896fc16.jpg] 
+ç¬¬ä¸€æ¬¡å†™ï¼Œä¸‘äº†ç‚¹ã€‚
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-15-02-49-59b7f7194477a.jpg] 
+ç¬¬äºŒå¤©å¥½äº†é‚£ä¹ˆä¸€ä¸¢ä¸¢ã€‚å¯èƒ½ã€‚
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-15-04-28-59b7f77cd255b.jpg] 
+é¢â€¦
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-15-01-05-59b7f6b1ed505.jpg] 
+
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-15-05-50-59b7f7ce419c9.jpg] 
+æµ·è±šè´´çš„å¾ˆå¤±è´¥â€¦â€¦
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-15-06-23-59b7f7ef588be.jpg] 
+å¿™ç€æ•²åšå®¢ï¼Œå¥½å‡ å¤©éƒ½æ²¡å†™ã€‚
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-15-07-14-59b7f822b6bd4.jpg] 
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-15-11-35-59b7f9274f5f5.jpg] 
+é»˜é»˜å–œæ¬¢äº†è¿™ä¹ˆå¤šå¹´ï¼ŒçœŸä¸Šæ‰‹äº†è¿˜æ˜¯æœ‰ç‚¹æ— ä»ä¸‹æ‰‹â€¦â€¦
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-15-12-06-59b7f9469e376.jpg] 
+ä¸ƒæœˆåäº”æçš„ï¼Œå¥½äº†é‚£ä¹ˆä¸€ä¸¢ä¸¢ã€‚
+
+è¿˜æœ‰ä¸€ä¸ªåˆ»äº†ç£¨ç£¨äº†åˆ»æ— æ•°æ¬¡çš„â€œæ®‹å°â€å°±ä¸æ”¾å‡ºæ¥å“äººäº†ã€‚
+
+[pre]
+æ›´æ–°ingâ€¦â€¦
+[/pre]
+                        </div>
+                    </section>
+
+                    <div class="post-actions">
+                        <a href='javascript:;' onclick="like_this(this)" data-id="5"><i class="layui-icon"  style="font-size: 20px;  ">&#xe6c6;</i> </a> 
+                    </div>
+                    <div class="author-field u-textAlignCenter">
+                        <img src="../../storage/app/public/avatar/2017-09-11-07-28-08-59b63b08c7202.jpg" tppabs="http://www.m-finder.com/storage/app/public/avatar/2017-09-11-07-28-08-59b63b08c7202.jpg" width="64" height="64" alt="Finder" class="avatar avatar-64 wp-user-avatar wp-user-avatar-64 alignnone photo" />                    
+                        <h3>Finder</h3>
+                                                        <span class="layui-badge-rim layui-bg-orange">ç®¡ç†å‘˜ </span>
+                                                    <p>æƒ³å¼±å¼±çš„é—®ä¸‹åå°çœ‹åˆ°çš„200+ç”¨æˆ·éƒ½æ˜¯æ´»äººå—ï¼Ÿ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-content" style='padding-top:5px;'>
+            <div class="content-area container">
+                <div id="comments" class="comments-area">
+                    <h2 class="comments-title layui-hide " id='comment-title'> æ¡è¯„è®º</h2>     
+                    <h2 class="comments-title layui-hide " id='comment-title' style="text-align: center">æ¶ˆç­é›¶å›å¤</h2>        
+                    <ol class="comment-list layui-hide "  id='comment_list'>
+         
+                    </ol>
+                    <section class="post-content" >
+                        <div class="single-post-inner grap">
+                            <div id="comment-page" data-total=""></div>
+                        </div>
+                    </section>
+                    <div id="respond" class="comment-respond">
+                        <h3 id="reply-title" class="comment-reply-title">å‘è¡¨è¯„è®º </h3>				
+                        <form id="commentform" class="comment-form">
+                            <p class="comment-form-comment">
+                                <textarea id="comment_text"  cols="45" rows="8" maxlength="65525" aria-required="true" class="layui-textarea fly-editor"></textarea>
+                                <input type="hidden" name="token" id="token" value="402d2aa524559f6dfe2789ccb66cce92">
+                            </p>
+                            <p class="form-submit">
+                                <input type="button"  onclick="submit_comment()" id="submit" class="submit-btn" value="å‘è¡¨è¯„è®º"> 
+                            </p>				
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+        </div>
+		
+         
+		
+
+
+
+
+<div class="site-footer clearfix u-textAlignCenter footer-link ">
+                å‹æƒ…é“¾æ¥ï¼š
+        <span class="layui-breadcrumb" lay-separator="|" style="visibility: visible;">
+                            <a href="javascript:if(confirm('http://www.guojiawei.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.guojiawei.com/'" tppabs="http://www.guojiawei.com/"  target="_blank" >See You</a>
+                            <a href="javascript:if(confirm('http://fly.layui.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://fly.layui.com/'" tppabs="http://fly.layui.com/"  target="_blank" >flyç¤¾åŒº</a>
+                            <a href="javascript:if(confirm('http://www.ok1219.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.ok1219.com/'" tppabs="http://www.ok1219.com/"  target="_blank" >ITå®‡å®™äººåšå®¢</a>
+                    </span>
+            </div>
+    <footer class="footer">
+        <div class="footavatar site-footer clearfix u-textAlignCenter">
+            <img src="../../public/images/logo.jpg" tppabs="http://www.m-finder.com/public/images/logo.jpg" alt="logo" title="logo" class="footphoto">     
+            <ul class="footinfo">
+                <p class="fname"><a>M-finder</a></p>
+                <p class="finfo">åˆ ç¹å°±ç®€,å‘ç°æ›´å¤š</p>
+            </ul>
+        </div>
+        <div class="Copyright">
+            <p>
+                <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7">
+                    <img border="0" src="../../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="phpè¡Œä¸šäº¤æµ" title="phpè¡Œä¸šäº¤æµ">
+                </a>
+            </p><br>
+            Powered by <a href="../../index.htm" tppabs="http://www.m-finder.com/" target="_blank">M-finder</a> 
+        </div>
+    </footer>
+	<script>
+	layui.use('element', function(){
+	  var element = layui.element;
+	});
+	</script>
+    </body>
+</html>

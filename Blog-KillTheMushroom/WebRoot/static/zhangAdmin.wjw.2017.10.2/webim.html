@@ -1,0 +1,295 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>环信-即时通讯</title>
+
+	<link href="plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
+	<link href="plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
+	<link href="plugins/jquery-confirm/jquery-confirm.min.css" rel="stylesheet"/>
+	<link href="plugins/HXWebIm/style.wjw.css" rel="stylesheet">
+	<script type='text/javascript' src='plugins/HXWebIm/webim.config.js'></script>
+	<script type='text/javascript' src='plugins/HXWebIm/strophe-1.2.8.min.js'></script>
+	<script type='text/javascript' src='plugins/HXWebIm/websdk-1.4.11.js'></script>
+</head>
+<body>
+<div class="webim-chatwindow">
+	<div id="im-main">
+
+	</div>
+	<div class="webim-chatwindow-sendtool">
+		<div class="webim-chatwindow-options">
+			<span class="webim-picture-icon smaller"><i class="zmdi zmdi-collection-folder-image"></i></span>
+			<span class="webim-file-icon smaller"><i class="zmdi zmdi-file-text"></i></span>
+		</div>
+		<textarea></textarea>
+		<button class="webim-button bg-color webim-send-btn base-bgcolor disabled" id="btnSend">发送</button>
+	</div>
+
+</div>
+
+
+
+<script src="plugins/jquery.1.12.4.min.js"></script>
+<script src="plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+<script src="plugins/waves-0.7.5/waves.min.js"></script>
+<script src="plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<script>
+	//初始化
+	var conn = new WebIM.connection({
+		isMultiLoginSessions: WebIM.config.isMultiLoginSessions,
+		https: typeof WebIM.config.https === 'boolean' ? WebIM.config.https : location.protocol === 'https:',
+		url: WebIM.config.xmppURL,
+		heartBeatWait: WebIM.config.heartBeatWait,
+		autoReconnectNumMax: WebIM.config.autoReconnectNumMax,
+		autoReconnectInterval: WebIM.config.autoReconnectInterval,
+		apiUrl: WebIM.config.apiURL,
+		isAutoLogin: true
+	});
+
+	//登录
+	var options = {
+		apiUrl: WebIM.config.apiURL,
+		user: 'admin',
+		pwd: 'admin',
+		appKey: WebIM.config.appkey
+	};
+	conn.open(options);
+
+	//查询好友列表
+	conn.getRoster({
+		success: function ( roster ) {
+			//获取好友列表，并进行好友列表渲染，roster格式为：
+			for ( var i = 0, l = roster.length; i < l; i++ ) {
+				var ros = roster[i];
+				//ros.subscription值为both/to为要显示的联系人，此处与APP需保持一致，才能保证两个客户端登录后的好友列表一致
+				if ( ros.subscription === 'both' || ros.subscription === 'to' ) {
+
+				}
+			}
+		},
+		error: function( e ){
+			console.log("好友列表获取异常！")
+			console.log(e);
+		}
+	});
+
+	//调用发送消息函数
+	$('#btnSend').click(function(){  //鼠标
+		sendPrivateText('admin2');
+	});
+	$(document).keydown(function(event){  //键盘
+		if(event.keyCode == 13){
+			sendPrivateText('admin2');
+		}
+	});
+
+	// 单聊发送文本消息
+	var sendPrivateText = function (to) {
+		var content = $("textarea").val();
+		if(content.trim()==''){ return; }	//非空验证
+		if(to==options.user){ return; }		//禁止自己发消息给自己
+		var id = conn.getUniqueId();                 // 生成本地消息id
+		var msg = new WebIM.message('txt', id);      // 创建文本消息
+		msg.set({
+			msg: content,                  // 消息内容
+			to: to,                    // 接收消息对象（用户id）
+			roomType: false,
+			success: function (id, serverMsgId) {
+				console.log('send private text Success');
+				var message={
+					data 	: content,
+					headpic : "images/avatar.jpg",
+					from	: options.user,
+					ext		: {
+						time	: new Date()
+					}
+				};
+				addMsg(message,true);
+				$('textarea').val('');
+			},
+			fail: function(e){
+				console.log("Send private text error");
+			}
+		});
+		msg.body.chatType = 'singleChat';
+		conn.send(msg.body);
+	};
+
+	//回调函数
+	conn.listen({
+		onOpened: function ( message ) {          //连接成功回调
+			// 如果isAutoLogin设置为false，那么必须手动设置上线，否则无法收消息
+			// 手动上线指的是调用conn.setPresence(); 如果conn初始化时已将isAutoLogin设置为true
+			// 则无需调用conn.setPresence();
+			console.log("连接成功！")
+		},
+		onClosed: function ( message ) {},         //连接关闭回调
+		onTextMessage: function ( message ) { 		//收到文本消息
+			addMsg(message,false);
+		},
+		onEmojiMessage: function ( message ) {		 //收到表情消息
+			// 当为WebIM添加了Emoji属性后，若发送的消息含WebIM.Emoji里特定的字符串，connection就会自动将
+			// 这些字符串和其它文字按顺序组合成一个数组，每一个数组元素的结构为{type: 'emoji(或者txt)', data:''}
+			// 当type='emoji'时，data表示表情图像的路径，当type='txt'时，data表示文本消息
+			console.log('Emoji');
+			var data = message.data;
+			for(var i = 0 , l = data.length ; i < l ; i++){
+				console.log(data[i]);
+			}
+		},
+		onPictureMessage: function ( message ) {	//收到图片消息
+			addMsg(message,false);
+		},
+		onCmdMessage: function ( message ) {},     //收到命令消息
+		onAudioMessage: function ( message ) {},   //收到音频消息
+		onLocationMessage: function ( message ) {},//收到位置消息
+		onFileMessage: function ( message ) {},    //收到文件消息
+		onVideoMessage: function (message) {
+			var node = document.getElementById('privateVideo');
+			var option = {
+				url: message.url,
+				headers: {
+					'Accept': 'audio/mp4'
+				},
+				onFileDownloadComplete: function (response) {
+					var objectURL = WebIM.utils.parseDownloadResponse.call(conn, response);
+					node.src = objectURL;
+				},
+				onFileDownloadError: function () {
+					console.log('File down load error.')
+				}
+			};
+			WebIM.utils.download.call(conn, option);
+		},   //收到视频消息
+		onPresence: function ( message ) {
+			console.log(message);
+			//对方收到请求加为好友
+			if (message.type === 'subscribe') {
+				var f = confirm(message.status);
+				console.log(f);
+				if(f==true){
+					/*同意添加好友操作的实现方法*/
+					conn.subscribed({
+						to: 'username',
+						message : '[resp:true]'
+					});
+					conn.subscribe({//需要反向添加对方好友
+						to: e.from,
+						message : '[resp:true]'
+					});
+					alert('添加成功');
+
+					//查询好友列表
+					conn.getRoster({
+						success: function ( roster ) {
+							//获取好友列表，并进行好友列表渲染，roster格式为：
+							for ( var i = 0, l = roster.length; i < l; i++ ) {
+								var ros = roster[i];
+								//ros.subscription值为both/to为要显示的联系人，此处与APP需保持一致，才能保证两个客户端登录后的好友列表一致
+								if ( ros.subscription === 'both' || ros.subscription === 'to' ) {
+
+								}
+							}
+						},
+						error: function( e ){
+							console.log("好友列表获取异常！")
+							console.log(e);
+						}
+					});
+				}else{
+					/*拒绝添加好友的方法处理*/
+					conn.unsubscribed({
+						to: 'username',
+						message : 'rejectAddFriend'
+					});
+				}
+			}
+		},       //处理“广播”或“发布-订阅”消息，如联系人订阅请求、处理群组、聊天室被踢解散等消息
+		onRoster: function ( message ) {		//处理好友申请
+			console.log("收到好友申请");
+			console.log(message);
+
+		},
+		onInviteMessage: function ( message ) {},  //处理群组邀请
+		onOnline: function () {},                  //本机网络连接成功
+		onOffline: function () {},                 //本机网络掉线
+		onError: function ( message ) {},          //失败回调
+		onBlacklistUpdate: function (list) {       //黑名单变动
+												   // 查询黑名单，将好友拉黑，将好友从黑名单移除都会回调这个函数，list则是黑名单现有的所有好友信息
+			console.log(list);
+		},
+		onReceivedMessage: function(message){},    //收到消息送达客户端回执
+		onDeliveredMessage: function(message){},   //收到消息送达服务器回执
+		onReadMessage: function(message){
+			console.log(message)
+		},        //收到消息已读回执
+		onCreateGroup: function(message){},        //创建群组成功回执（需调用createGroupNew）
+		onMutedMessage: function(message){}        //如果用户在A群组被禁言，在A群发消息会走这个回调并且消息不会传递给群其它成员
+	});
+
+	//显示消息
+	function addMsg(message,isMine){
+		console.log(message)
+		if(message.headpic==null || message.headpic==undefined || message.headpic==""){
+			message.headpic = "images/avatar.jpg";
+		}
+		if(message.ext.time==null || message.ext.time==undefined || message.ext.time==""){
+			message.ext.time = "未知时间";
+		}
+		if(message.url!=null && message.url!=undefined && message.url!=""){
+			message.data = "<img src='"+message.url+"' style='width:300px; height:auto;'>"
+		}
+		var html='';
+		if(isMine){
+			html = '<div class="webim-msg-container rel">\
+			<div class="rel right">\
+				<div class="webim-avatar-icon right small">\
+					<img class="w100" src="'+message.headpic+'" >\
+				</div>\
+				<p class="right">\
+					<span>'+message.from+'</span>\
+					<span> </span>\
+					<span>'+message.ext.time+'</span>\
+				</p>\
+				<div class="clearfix">\
+					<div class="webim-msg-value">'+message.data+'</div>\
+					<div class="webim-msg-error hide">\
+						<span class="webim-file-icon font smaller red">k</span>\
+					</div>\
+				</div>\
+			</div>\
+			</div>';
+		}else{
+			html = '<div class="webim-msg-container rel">\
+			<div class="rel left">\
+				<div class="webim-avatar-icon left small">\
+					<img class="w100" src="'+message.headpic+'" >\
+				</div>\
+				<p class="left">\
+					<span>'+message.from+'</span>\
+					<span> </span>\
+					<span>'+message.ext.time+'</span>\
+				</p>\
+				<div class="clearfix">\
+					<div class="webim-msg-value">'+message.data+'</div>\
+					<div class="webim-msg-error hide">\
+						<span class="webim-file-icon font smaller red">k</span>\
+					</div>\
+				</div>\
+			</div>\
+			</div>';
+		}
+
+		$("#im-main").append(html).scrollTop($("#im-main").height());
+		//滚动到底部
+		//var h = $(document).height()-$(window).height();
+		//$(document).scrollTop(h);
+	}
+</script>
+</body>
+</html>

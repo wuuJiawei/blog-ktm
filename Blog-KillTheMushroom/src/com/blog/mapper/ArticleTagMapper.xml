@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.dao.ArticleTagMapper" >
+  <resultMap id="BaseResultMap" type="com.blog.model.ArticleTag" >
+    <id column="tag" property="tag" jdbcType="INTEGER" />
+    <result column="tagName" property="tagName" jdbcType="VARCHAR" />
+    <result column="userId" property="userId" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="freeze" property="freeze" jdbcType="INTEGER" />
+    <result column="articleNum" property="articleNum" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tag, tagName, userId, createTime, freeze, articleNum
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from article_tag
+    where tag = #{tag,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article_tag
+    where tag = #{tag,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.blog.model.ArticleTag" >
+    insert into article_tag (tag, tagName, userId, 
+      createTime, freeze, articleNum
+      )
+    values (#{tag,jdbcType=INTEGER}, #{tagName,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{freeze,jdbcType=INTEGER}, #{articleNum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.blog.model.ArticleTag" >
+    insert into article_tag
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tag != null" >
+        tag,
+      </if>
+      <if test="tagName != null" >
+        tagName,
+      </if>
+      <if test="userId != null" >
+        userId,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="freeze != null" >
+        freeze,
+      </if>
+      <if test="articleNum != null" >
+        articleNum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tag != null" >
+        #{tag,jdbcType=INTEGER},
+      </if>
+      <if test="tagName != null" >
+        #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="freeze != null" >
+        #{freeze,jdbcType=INTEGER},
+      </if>
+      <if test="articleNum != null" >
+        #{articleNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.blog.model.ArticleTag" >
+    update article_tag
+    <set >
+      <if test="tagName != null" >
+        tagName = #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        userId = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="freeze != null" >
+        freeze = #{freeze,jdbcType=INTEGER},
+      </if>
+      <if test="articleNum != null" >
+        articleNum = #{articleNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where tag = #{tag,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.blog.model.ArticleTag" >
+    update article_tag
+    set tagName = #{tagName,jdbcType=VARCHAR},
+      userId = #{userId,jdbcType=INTEGER},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      freeze = #{freeze,jdbcType=INTEGER},
+      articleNum = #{articleNum,jdbcType=INTEGER}
+    where tag = #{tag,jdbcType=INTEGER}
+  </update>
+</mapper>

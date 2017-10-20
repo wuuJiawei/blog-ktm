@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="cmn-CN">
+    <head>
+        <meta charset=UTF-8"utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="M-finder博客，laravel，layui，技术分享，原创"/>
+        <meta name="description" content="M-finder"/>
+        <meta name="csrf-token" content="GrrWtA1vTWDlXuXG42yHpPyrYd6Yvtav83BcGYKf">
+        <title>M-finder - 删繁就简,发现更多</title>
+		<script src="../../public/js/layui/layui.js" tppabs="http://www.m-finder.com/public/js/layui/layui.js"></script>
+        <script src="../../public/js/jquery-3.2.1.min.js" tppabs="http://www.m-finder.com/public/js/jquery-3.2.1.min.js"></script>
+        <script src="../../public/js/common.js" tppabs="http://www.m-finder.com/public/js/common.js"></script>
+		<script src="../../public/js/home.js" tppabs="http://www.m-finder.com/public/js/home.js"></script>
+		<script src="../../public/js/musicplayer.js" tppabs="http://www.m-finder.com/public/js/musicplayer.js"></script>
+		
+        <link href="../../public/js/layui/css/layui.css" tppabs="http://www.m-finder.com/public/js/layui/css/layui.css" rel="stylesheet">
+        <link href="../../public/css/global.css" tppabs="http://www.m-finder.com/public/css/global.css" rel="stylesheet">
+        <link href="../../public/css/home.css" tppabs="http://www.m-finder.com/public/css/home.css" rel="stylesheet">
+        <link rel="icon" href="http://www.m-finder.com/public/favicon.ico"> 
+		
+    </head>
+    <body class="home blog ">
+
+        <div class="hfeed site">
+            <header id="header" class="home-header blog-background banner-mask">
+                <div class="nav-header container">       
+                    <div class="nav-header-container" >
+                                                <a class="back-home" href="../../index.htm" tppabs="http://www.m-finder.com/" data-id="1">博客首页</a>
+                                                <a class="back-home" href="../category/2.htm" tppabs="http://www.m-finder.com/home/category/2" data-id="2">闲言赘语</a>
+                                                <a class="back-home" href="../category/3.htm" tppabs="http://www.m-finder.com/home/category/3" data-id="3">技术讨论</a>
+                                                <a class="back-home" href="../single-page/4.htm" tppabs="http://www.m-finder.com/home/single-page/4" data-id="4">关于</a>
+                                            </div>            
+                </div>
+                <div class="header-wrap">
+                    <div class="container">
+                        <div class="home-info-container">
+                            <a href="../../index.htm" tppabs="http://www.m-finder.com/">
+                                <h2>M-finder</h2>
+                            </a>
+                            <h4 id="web_title_desc">删繁就简,发现更多</h4>
+                                                        <div class='log-box'>
+                                <a class="reg" href="../../register.htm" tppabs="http://www.m-finder.com/register">注册</a>
+                                <a class="login" href="../../login.htm" tppabs="http://www.m-finder.com/login">登录</a>
+                            </div>
+                                                    </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="main layui-clear ">
+            
+<script id="comment_tpl" type="text/html">
+    <%# for(var i = 0; i < d.data.length; i++){ %>
+    <li id="comment-<% d.data[i].id %>"  class="comment even thread-even depth-1">
+        <article class="comment-body" id="comment">
+            <footer class="comment-meta">
+                <div class="comment-author vcard">
+                    <img src="<% d.data[i].avatar===null ? '/public/images/avatar/'+parseInt(11*Math.random()) +'.jpg' : d.data[i].avatar %>" width="64" height="64" alt="<% d.data[i].name %>" class="avatar avatar-42 wp-user-avatar wp-user-avatar-42 alignnone photo" />                    						
+                    <b class="fn"><% d.data[i].name %></b><span class="says">：</span>					
+                </div>
+                <div class="comment-metadata">
+                    <time datetime="<% d.data[i].creted_at %>"> <% layui.util.timeAgo(d.data[i].created_at) %> </time>
+                </div>
+            </footer>
+            <div class="comment-content">
+                <% d.data[i].content %>
+            </div>
+            <div class="reply">
+                <a rel="nofollow" class="comment-reply-link" href="javascript:void(0)" onclick="jump_comment(this)" data-uid="<% d.data[i].uid %>" data-name="<% d.data[i].name %>">回复</a>
+            </div>
+        </article>
+    </li>
+    <%# } %>
+</script>
+
+<div id="main" class="content homepage" data-id="2" data-aid="8">  
+    <div class="content-area container">
+        <div class="site-content" id="article_content">
+            <div class="content-area container">
+                <header class="entry-header page-header">
+                    <h1 class="entry-title page-title">关于银行“代码”</h1>		
+                    <div class="entry-meta">
+                        <time class="entry-date published updated" datetime="2017-09-29 09:35:05">2017-09-29 09:35:05</time>			
+                        <span class="separator">/</span>
+                        404 阅		
+                        <span class="separator" >/</span>
+                        <span id='like_num'>2</span> 赞		
+                    </div>
+                </header>
+                <div class="site-content">
+                    <section class="post-content">
+                        <div class="single-post-inner grap detail-body photos">
+                            项目中要根据银行卡来反推银行，需要整理一个银行名称和代码的对照表，并且要求每个银行只保留一条数据，其实就是要在自己的平台内对所有银行进行编号，但是银行已经有了成熟的编码系统，自己搞又太麻烦，so……
+
+本来理解错了需求，以为这个东西非常简单，结果，一折腾就是几天，弄清楚了需求后，特么确实是很简单……
+
+每个银行都有一个对应的编码，但是用来定位银行信息的代码其实有两种，一种是人民银行发布的，3 位，叫做银行行别码，通过本代码可以确定银行的“行别”，中、农、工、建之类的大银行每个独占一码，不与其他银行重复，地区性中小银行则使用统一编码，例如：北京银行 和 大连银行 等城市银行，都是使用 313 这一个编码，即城市商业银行；另外一种是银联发布的，8 位，叫做银行机构代码，通过本代码可以定位银行的详细信息，详细到每行一码。
+
+那么问题来了，使用银行行别码合并银行数据时，就像上边说的，中小银行都被合并到了一起，只剩下一个行别名。使用银行机构代码合并数据时，大银行又会剩些分行信息无法合并，因为代码不一样，要做到每个银行都有数据，并且还没有重复的，怎么办呢？
+
+从公司在第三方支付方拿到的银行名称代码对照表来看，他们的做法是大银行按照银行行别码合并，小银行按照银行机构代码，这样做可以做到银行信息的整理，但是还有问题就是第三方支付做的表中数据不是最新的，最后还是要自己整理、判断银行信息。
+
+银行行别码具体格式如下：
+[pre]
+一、类别代码：
+1位数字，0-9，标识银行类别。0-中央银行；1-国有独资商业银行；2-政策性银行；3-其他商业银行；4-非银行金融机构；5、6、7-外资银行；9-特许参与者；8-待分配。
+二、顺序编码：2位数字，01-99。
+[/pre]
+
+机构代码未找到权威的说明。
+                        </div>
+                    </section>
+
+                    <div class="post-actions">
+                        <a href='javascript:;' onclick="like_this(this)" data-id="8"><i class="layui-icon"  style="font-size: 20px;  ">&#xe6c6;</i> </a> 
+                    </div>
+                    <div class="author-field u-textAlignCenter">
+                        <img src="../../storage/app/public/avatar/2017-09-11-07-28-08-59b63b08c7202.jpg" tppabs="http://www.m-finder.com/storage/app/public/avatar/2017-09-11-07-28-08-59b63b08c7202.jpg" width="64" height="64" alt="Finder" class="avatar avatar-64 wp-user-avatar wp-user-avatar-64 alignnone photo" />                    
+                        <h3>Finder</h3>
+                                                        <span class="layui-badge-rim layui-bg-orange">管理员 </span>
+                                                    <p>想弱弱的问下后台看到的200+用户都是活人吗？</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-content" style='padding-top:5px;'>
+            <div class="content-area container">
+                <div id="comments" class="comments-area">
+                    <h2 class="comments-title layui-hide " id='comment-title'> 条评论</h2>     
+                    <h2 class="comments-title layui-hide " id='comment-title' style="text-align: center">消灭零回复</h2>        
+                    <ol class="comment-list layui-hide "  id='comment_list'>
+         
+                    </ol>
+                    <section class="post-content" >
+                        <div class="single-post-inner grap">
+                            <div id="comment-page" data-total=""></div>
+                        </div>
+                    </section>
+                    <div id="respond" class="comment-respond">
+                        <h3 id="reply-title" class="comment-reply-title">发表评论 </h3>				
+                        <form id="commentform" class="comment-form">
+                            <p class="comment-form-comment">
+                                <textarea id="comment_text"  cols="45" rows="8" maxlength="65525" aria-required="true" class="layui-textarea fly-editor"></textarea>
+                                <input type="hidden" name="token" id="token" value="e5455e12d4f74a61119c83dcd8c29327">
+                            </p>
+                            <p class="form-submit">
+                                <input type="button"  onclick="submit_comment()" id="submit" class="submit-btn" value="发表评论"> 
+                            </p>				
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+        </div>
+		
+         
+		
+
+
+
+
+<div class="site-footer clearfix u-textAlignCenter footer-link ">
+                友情链接：
+        <span class="layui-breadcrumb" lay-separator="|" style="visibility: visible;">
+                            <a href="javascript:if(confirm('http://www.guojiawei.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.guojiawei.com/'" tppabs="http://www.guojiawei.com/"  target="_blank" >See You</a>
+                            <a href="javascript:if(confirm('http://fly.layui.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://fly.layui.com/'" tppabs="http://fly.layui.com/"  target="_blank" >fly社区</a>
+                            <a href="javascript:if(confirm('http://www.ok1219.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.ok1219.com/'" tppabs="http://www.ok1219.com/"  target="_blank" >IT宇宙人博客</a>
+                    </span>
+            </div>
+    <footer class="footer">
+        <div class="footavatar site-footer clearfix u-textAlignCenter">
+            <img src="../../public/images/logo.jpg" tppabs="http://www.m-finder.com/public/images/logo.jpg" alt="logo" title="logo" class="footphoto">     
+            <ul class="footinfo">
+                <p class="fname"><a>M-finder</a></p>
+                <p class="finfo">删繁就简,发现更多</p>
+            </ul>
+        </div>
+        <div class="Copyright">
+            <p>
+                <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7">
+                    <img border="0" src="../../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="php行业交流" title="php行业交流">
+                </a>
+            </p><br>
+            Powered by <a href="../../index.htm" tppabs="http://www.m-finder.com/" target="_blank">M-finder</a> 
+        </div>
+    </footer>
+	<script>
+	layui.use('element', function(){
+	  var element = layui.element;
+	});
+	</script>
+    </body>
+</html>

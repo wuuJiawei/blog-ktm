@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.dao.ArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.blog.model.Article" >
+    <id column="articleId" property="articleId" jdbcType="INTEGER" />
+    <result column="userId" property="userId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="classifyId" property="classifyId" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="readNum" property="readNum" jdbcType="INTEGER" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="privacy" property="privacy" jdbcType="INTEGER" />
+    <result column="writeStyle" property="writeStyle" jdbcType="INTEGER" />
+    <result column="recommend" property="recommend" jdbcType="INTEGER" />
+    <result column="thumb" property="thumb" jdbcType="INTEGER" />
+    <association property="user" column="userId" select="com.blog.dao.UserMapper.selectByPrimaryKey" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.blog.model.Article" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    articleId, userId, title, classifyId, createTime, readNum, sort, privacy, writeStyle, 
+    recommend, thumb
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  
+  <!-- 根据条件查询 (包含user用户信息) -->
+  <select id="selectAll" resultMap="ResultMapWithBLOBs" parameterType="map">
+  	select *
+  	from article a
+  	left join article_classify ac on ac.classifyId = a.classifyId
+  	<where>
+  		<if test="title != null"> <!-- 标题，模糊查询 -->
+  		and title like '%${title}%'
+  		</if>
+  		<if test="classifyId != null"> <!-- 分类 -->
+  		and a.classifyId = #{classifyId}
+  		</if>
+  		<if test="writeStyle != null"> <!-- 创作类型：0-原创 等 -->
+  		and writeStyle = #{writeStyle}
+  		</if>
+  		<!-- <if test="articleFreeze != null"> 文章是否冻结
+  		and a.freeze = #{articleFreeze} 
+  		</if> -->
+  		<if test="classifyFreeze != null"> <!-- 文章分类是否冻结 -->
+  		and ac.freeze = #{classifyFreeze}  
+  		</if>
+  		<if test="recommend != null"> <!-- 是否读者推荐 -->
+  		and a.recommend = #{recommend}
+  		</if>
+  		<if test="privacy != null"> <!-- 私有或公开 -->
+  		and a.privacy = #{privacy}
+  		</if>
+  	</where>
+  	<choose> <!-- 排序 -->
+  		<when test="sort != null">
+  			order by ${sort}
+  		</when>
+  		<otherwise>
+  			order by a.sort desc,articleId desc
+  		</otherwise>
+  	</choose>
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    where articleId = #{articleId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article
+    where articleId = #{articleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.blog.model.Article" >
+    insert into article (articleId, userId, title, 
+      classifyId, createTime, readNum, 
+      sort, privacy, writeStyle, 
+      recommend, thumb, content
+      )
+    values (#{articleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{classifyId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{readNum,jdbcType=INTEGER}, 
+      #{sort,jdbcType=INTEGER}, #{privacy,jdbcType=INTEGER}, #{writeStyle,jdbcType=INTEGER}, 
+      #{recommend,jdbcType=INTEGER}, #{thumb,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.blog.model.Article" >
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
+        articleId,
+      </if>
+      <if test="userId != null" >
+        userId,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="classifyId != null" >
+        classifyId,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="readNum != null" >
+        readNum,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="privacy != null" >
+        privacy,
+      </if>
+      <if test="writeStyle != null" >
+        writeStyle,
+      </if>
+      <if test="recommend != null" >
+        recommend,
+      </if>
+      <if test="thumb != null" >
+        thumb,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
+        #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="classifyId != null" >
+        #{classifyId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="readNum != null" >
+        #{readNum,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="privacy != null" >
+        #{privacy,jdbcType=INTEGER},
+      </if>
+      <if test="writeStyle != null" >
+        #{writeStyle,jdbcType=INTEGER},
+      </if>
+      <if test="recommend != null" >
+        #{recommend,jdbcType=INTEGER},
+      </if>
+      <if test="thumb != null" >
+        #{thumb,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.blog.model.Article" >
+    update article
+    <set >
+      <if test="userId != null" >
+        userId = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="classifyId != null" >
+        classifyId = #{classifyId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="readNum != null" >
+        readNum = #{readNum,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="privacy != null" >
+        privacy = #{privacy,jdbcType=INTEGER},
+      </if>
+      <if test="writeStyle != null" >
+        writeStyle = #{writeStyle,jdbcType=INTEGER},
+      </if>
+      <if test="recommend != null" >
+        recommend = #{recommend,jdbcType=INTEGER},
+      </if>
+      <if test="thumb != null" >
+        thumb = #{thumb,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where articleId = #{articleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.blog.model.Article" >
+    update article
+    set userId = #{userId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      classifyId = #{classifyId,jdbcType=INTEGER},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      readNum = #{readNum,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      privacy = #{privacy,jdbcType=INTEGER},
+      writeStyle = #{writeStyle,jdbcType=INTEGER},
+      recommend = #{recommend,jdbcType=INTEGER},
+      thumb = #{thumb,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where articleId = #{articleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.blog.model.Article" >
+    update article
+    set userId = #{userId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      classifyId = #{classifyId,jdbcType=INTEGER},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      readNum = #{readNum,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      privacy = #{privacy,jdbcType=INTEGER},
+      writeStyle = #{writeStyle,jdbcType=INTEGER},
+      recommend = #{recommend,jdbcType=INTEGER},
+      thumb = #{thumb,jdbcType=INTEGER}
+    where articleId = #{articleId,jdbcType=INTEGER}
+  </update>
+</mapper>

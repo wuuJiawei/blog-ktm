@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>全景展示</title>
+    <script src="https://cdn.bootcss.com/three.js/r83/three.js"></script>
+    <script src="js/tpanorama.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #panoramaConianer {
+            overflow: hidden;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+        
+    </style>
+
+    <script>
+        var opt,tp;
+        window.onload = function () {
+            opt = {
+                container:'panoramaConianer',//容器
+                url:'img/p5.jpg',
+				width: '1000px',//指定宽度，高度自适应
+                lables:[
+                    {position:{lon:-163.44,lat:-7.92},logoUrl:'',text:'蓝窗户'},
+                    {position:{lon:114.12,lat:69.48},logoUrl:'',text:'一片云彩'},
+                    {position:{lon:-94.32,lat:-4.24},logoUrl:'',text:'大海'}
+                ],
+                widthSegments: 60,//水平切段数
+                heightSegments: 40,//垂直切段数（值小粗糙速度快，值大精细速度慢）
+                pRadius: 1000,//全景球的半径，推荐使用默认值
+                minFocalLength: 6,//镜头最a小拉近距离
+                maxFocalLength: 6,//镜头最大拉近距离
+                showlable: 'show' // show,click
+            }
+            tp = new tpanorama(opt);
+            tp.init();
+        }
+
+        
+
+    </script>
+</head>
+<body>
+
+<div id="panoramaConianer"></div>
+
+</body>
+</html>

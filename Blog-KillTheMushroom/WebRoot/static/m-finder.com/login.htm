@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=UTF-8"utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="csrf-token" content="GrrWtA1vTWDlXuXG42yHpPyrYd6Yvtav83BcGYKf">
+        <title>M-finder - M-finder</title>
+        <script src="public/js/layui/layui.js" tppabs="http://www.m-finder.com/public/js/layui/layui.js"></script>
+        <script src="public/js/jquery-3.2.1.min.js" tppabs="http://www.m-finder.com/public/js/jquery-3.2.1.min.js"></script>
+        <script src="public/js/common.js" tppabs="http://www.m-finder.com/public/js/common.js"></script>
+        <script src="public/js/home.js" tppabs="http://www.m-finder.com/public/js/home.js"></script>
+		<script src="public/js/musicplayer.js" tppabs="http://www.m-finder.com/public/js/musicplayer.js"></script>
+        <link href="public/js/layui/css/layui.css" tppabs="http://www.m-finder.com/public/js/layui/css/layui.css" rel="stylesheet">
+        <link href="public/css/global.css" tppabs="http://www.m-finder.com/public/css/global.css" rel="stylesheet">
+        <link href="public/css/home.css" tppabs="http://www.m-finder.com/public/css/home.css" rel="stylesheet">
+        <link rel="icon" href="http://www.m-finder.com/public/favicon.ico"> 
+    </head>
+    <body>
+        <div class="layui-layout layui-layout-admin">
+            <div class="layui-header">
+                <div class="layui-logo">
+                    <a class="navbar-brand" href="index.htm" tppabs="http://www.m-finder.com/">M-finder</a>
+                </div>
+            </div>
+
+            <div class="content-area container login-content" style="width:100%">
+                <div class="layui-tab">
+    <ul class="layui-tab-title">
+        <li class="layui-this">ç™»å½•</li>
+        <li></li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+
+            <form class="layui-form layui-form-pane login-box" method="POST" action="http://www.m-finder.com/login" id="login-box">
+                <input type="hidden" name="_token" value="GrrWtA1vTWDlXuXG42yHpPyrYd6Yvtav83BcGYKf">
+                <div class="layui-form-item ">
+                    <label class="layui-form-label">ç™»å½•é‚®ç®±</label>
+                    <div class="layui-input-inline">
+                        <input id="email" type="email" class="layui-input" lay-verify="required|email" name="email" value="" autofocus autocomplete="off" placeholder="è¯·è¾“å…¥ç™»å½•é‚®ç®±">
+                    </div>
+                                    </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">ç™»å½•å¯†ç </label>
+                    <div class="layui-input-inline">
+                        <input type="password" name="password" lay-verify="password" autocomplete="off" placeholder="è¯·è¾“å…¥ç™»å½•å¯†ç " class="layui-input" autofocus autocomplete="off">
+                    </div>
+                                    </div>
+
+                <div class="layui-form-item login-btn-box">
+                    <button class="layui-btn" lay-submit="" lay-filter="login-box">ç«‹å³ç™»å½•</button>
+                    <span style="padding-left:20px;"><a href="password/reset.htm" tppabs="http://www.m-finder.com/password/reset">å¿˜è®°å¯†ç ï¼Ÿ</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function () {
+        var form = layui.form, layer = layui.layer;
+        //è‡ªå®šä¹‰éªŒè¯è§„åˆ™
+        form.verify({
+            password: [/(.+){6,12}$/, 'å¯†ç å¿…é¡»6åˆ°12ä½']
+        });
+    });
+</script>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footavatar site-footer clearfix u-textAlignCenter">
+                <img src="public/images/logo.jpg" tppabs="http://www.m-finder.com/public/images/logo.jpg" alt="å®˜æ–¹å¾®ä¿¡äºŒç»´ç " title="æ‰«ç å…³æ³¨å®˜æ–¹å¾®ä¿¡ï¼Œæ›´å¤šèµ„è®¯æŠ¢å…ˆè·å–" class="footphoto">     
+                <ul class="footinfo">
+                    <p class="fname"><a>M-finder</a></p>
+                    <p class="finfo">M-finder</p>
+                </ul>
+            </div>
+            <div class="Copyright">
+                <p>
+                    <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7">
+                        <img border="0" src="../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="phpè¡Œä¸šäº¤æµ" title="phpè¡Œä¸šäº¤æµ">
+                    </a>
+                </p><br>
+                Powered by <a href="index.htm" tppabs="http://www.m-finder.com/" target="_blank">M-finder</a> 
+            </div>
+        </footer>
+    </body>
+</html>

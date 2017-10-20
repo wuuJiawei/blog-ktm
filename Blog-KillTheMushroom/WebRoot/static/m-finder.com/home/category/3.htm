@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="cmn-CN">
+    <head>
+        <meta charset=UTF-8"utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="M-finderÂçöÂÆ¢ÔºålaravelÔºålayuiÔºåÊäÄÊúØÂàÜ‰∫´ÔºåÂéüÂàõ"/>
+        <meta name="description" content="M-finder"/>
+        <meta name="csrf-token" content="GrrWtA1vTWDlXuXG42yHpPyrYd6Yvtav83BcGYKf">
+        <title>M-finder - Âà†ÁπÅÂ∞±ÁÆÄ,ÂèëÁé∞Êõ¥Â§ö</title>
+		<script src="../../public/js/layui/layui.js" tppabs="http://www.m-finder.com/public/js/layui/layui.js"></script>
+        <script src="../../public/js/jquery-3.2.1.min.js" tppabs="http://www.m-finder.com/public/js/jquery-3.2.1.min.js"></script>
+        <script src="../../public/js/common.js" tppabs="http://www.m-finder.com/public/js/common.js"></script>
+		<script src="../../public/js/home.js" tppabs="http://www.m-finder.com/public/js/home.js"></script>
+		<script src="../../public/js/musicplayer.js" tppabs="http://www.m-finder.com/public/js/musicplayer.js"></script>
+		
+        <link href="../../public/js/layui/css/layui.css" tppabs="http://www.m-finder.com/public/js/layui/css/layui.css" rel="stylesheet">
+        <link href="../../public/css/global.css" tppabs="http://www.m-finder.com/public/css/global.css" rel="stylesheet">
+        <link href="../../public/css/home.css" tppabs="http://www.m-finder.com/public/css/home.css" rel="stylesheet">
+        <link rel="icon" href="http://www.m-finder.com/public/favicon.ico"> 
+		
+    </head>
+    <body class="home blog ">
+
+        <div class="hfeed site">
+            <header id="header" class="home-header blog-background banner-mask">
+                <div class="nav-header container">       
+                    <div class="nav-header-container" >
+                                                <a class="back-home" href="../../index.htm" tppabs="http://www.m-finder.com/" data-id="1">ÂçöÂÆ¢È¶ñÈ°µ</a>
+                                                <a class="back-home" href="2.htm" tppabs="http://www.m-finder.com/home/category/2" data-id="2">Èó≤Ë®ÄËµòËØ≠</a>
+                                                <a class="back-home" href="3.htm" tppabs="http://www.m-finder.com/home/category/3" data-id="3">ÊäÄÊúØËÆ®ËÆ∫</a>
+                                                <a class="back-home" href="../single-page/4.htm" tppabs="http://www.m-finder.com/home/single-page/4" data-id="4">ÂÖ≥‰∫é</a>
+                                            </div>            
+                </div>
+                <div class="header-wrap">
+                    <div class="container">
+                        <div class="home-info-container">
+                            <a href="../../index.htm" tppabs="http://www.m-finder.com/">
+                                <h2>M-finder</h2>
+                            </a>
+                            <h4 id="web_title_desc">Âà†ÁπÅÂ∞±ÁÆÄ,ÂèëÁé∞Êõ¥Â§ö</h4>
+                                                        <div class='log-box'>
+                                <a class="reg" href="../../register.htm" tppabs="http://www.m-finder.com/register">Ê≥®ÂÜå</a>
+                                <a class="login" href="../../login.htm" tppabs="http://www.m-finder.com/login">ÁôªÂΩï</a>
+                            </div>
+                                                    </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="main layui-clear ">
+            
+<script id="article_tpl" type="text/html">
+    <%# for(var i = 0; i < d.data.length; i++){  %>
+    <article class="post-item">
+        <div class="info-mask">
+            <div class="mask-wrapper">
+                <h2 class="post-title layui-elip">
+                    <a href="http://www.m-finder.com/home/article-detail/<% d.data[i].id %>" title="<% d.data[i].title %>"><% d.data[i].title %></a>
+                </h2>
+                <div class="post-info"><span class="post-time"><time><% layui.util.timeAgo(d.data[i].created_at)  %></time></span>
+                    <span class="middotDivider"></span>
+                    <span class="post-tags"><% d.data[i].menu %></span>
+                    <span class="middotDivider"></span>
+                    <span class="post-author">Author - <% d.data[i].author %></span>
+                    <span class="middotDivider"></span>
+                    <span class="post-read"><i class="iconfont icon-liulanyanjing"></i> - <% d.data[i].read %></span>
+                    <span class="middotDivider"></span>
+                    <span class="post-like"><i class="layui-icon" >&#xe6c6;</i> - <% d.data[i].like %></span>
+                </div>
+            </div>
+        </div>
+    </article>
+    <%# } %>
+</script>
+
+<div id="main" class="content homepage" data-cid="3">    
+    <div class="content-area container">
+        <div class="site-content" id="article_list">
+                        <article class="post-item">
+                <div class="info-mask">
+                    <div class="mask-wrapper">
+                        <h2 class="post-title layui-elip">
+                            <a href="../article-detail/4.htm" tppabs="http://www.m-finder.com/home/article-detail/4" title="laravel ‰ΩøÁî®Á¨îËÆ∞">laravel ‰ΩøÁî®Á¨îËÆ∞</a>
+                        </h2>
+                        <div class="post-info"><span class="post-time"><time>2017-09-11 14:45:12</time></span>
+                            <span class="middotDivider"></span>
+                            <span class="post-tags">ÊäÄÊúØËÆ®ËÆ∫</span>
+                            <span class="middotDivider"></span>
+                            <span class="post-author">Author - Finder</span>
+                            <span class="middotDivider"></span>
+                            <span class="post-read"><i class="iconfont icon-liulanyanjing"></i> - 189</span>
+                            <span class="middotDivider"></span>
+                            <span class="post-like"><i class="layui-icon" >&#xe6c6;</i> - 5</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+                        <article class="post-item">
+                <div class="info-mask">
+                    <div class="mask-wrapper">
+                        <h2 class="post-title layui-elip">
+                            <a href="../article-detail/2.htm" tppabs="http://www.m-finder.com/home/article-detail/2" title="Java Áà¨ÂùëÊâãÂÜå">Java Áà¨ÂùëÊâãÂÜå</a>
+                        </h2>
+                        <div class="post-info"><span class="post-time"><time>2017-09-11 07:01:54</time></span>
+                            <span class="middotDivider"></span>
+                            <span class="post-tags">ÊäÄÊúØËÆ®ËÆ∫</span>
+                            <span class="middotDivider"></span>
+                            <span class="post-author">Author - Finder</span>
+                            <span class="middotDivider"></span>
+                            <span class="post-read"><i class="iconfont icon-liulanyanjing"></i> - 120</span>
+                            <span class="middotDivider"></span>
+                            <span class="post-like"><i class="layui-icon" >&#xe6c6;</i> - 6</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+                    </div>
+    </div>
+</div>
+<section class="post-content">
+    <div class="single-post-inner grap">
+        <div id="page" data-total="2"></div>
+    </div>
+</section>
+
+        </div>
+		
+         
+		
+
+
+
+
+<div class="site-footer clearfix u-textAlignCenter footer-link ">
+                ÂèãÊÉÖÈìæÊé•Ôºö
+        <span class="layui-breadcrumb" lay-separator="|" style="visibility: visible;">
+                            <a href="javascript:if(confirm('http://www.guojiawei.com/  \n\n∏√Œƒº˛Œ¥±ª Teleport Pro œ¬‘ÿ£¨“ÚŒ™ À¸Œª”⁄∆ ºµÿ÷∑“‘…Ë÷√µƒ±ﬂΩÁ“‘Õ‚µƒ”ÚªÚ¬∑æ∂÷–°£  \n\nƒ„œÎ“™¥”∑˛ŒÒ∆˜¥Úø™À¸¬?'))window.location='http://www.guojiawei.com/'" tppabs="http://www.guojiawei.com/"  target="_blank" >See You</a>
+                            <a href="javascript:if(confirm('http://fly.layui.com/  \n\n∏√Œƒº˛Œ¥±ª Teleport Pro œ¬‘ÿ£¨“ÚŒ™ À¸Œª”⁄∆ ºµÿ÷∑“‘…Ë÷√µƒ±ﬂΩÁ“‘Õ‚µƒ”ÚªÚ¬∑æ∂÷–°£  \n\nƒ„œÎ“™¥”∑˛ŒÒ∆˜¥Úø™À¸¬?'))window.location='http://fly.layui.com/'" tppabs="http://fly.layui.com/"  target="_blank" >flyÁ§æÂå∫</a>
+                            <a href="javascript:if(confirm('http://www.ok1219.com/  \n\n∏√Œƒº˛Œ¥±ª Teleport Pro œ¬‘ÿ£¨“ÚŒ™ À¸Œª”⁄∆ ºµÿ÷∑“‘…Ë÷√µƒ±ﬂΩÁ“‘Õ‚µƒ”ÚªÚ¬∑æ∂÷–°£  \n\nƒ„œÎ“™¥”∑˛ŒÒ∆˜¥Úø™À¸¬?'))window.location='http://www.ok1219.com/'" tppabs="http://www.ok1219.com/"  target="_blank" >ITÂÆáÂÆô‰∫∫ÂçöÂÆ¢</a>
+                    </span>
+            </div>
+    <footer class="footer">
+        <div class="footavatar site-footer clearfix u-textAlignCenter">
+            <img src="../../public/images/logo.jpg" tppabs="http://www.m-finder.com/public/images/logo.jpg" alt="logo" title="logo" class="footphoto">     
+            <ul class="footinfo">
+                <p class="fname"><a>M-finder</a></p>
+                <p class="finfo">Âà†ÁπÅÂ∞±ÁÆÄ,ÂèëÁé∞Êõ¥Â§ö</p>
+            </ul>
+        </div>
+        <div class="Copyright">
+            <p>
+                <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7  \n\n∏√Œƒº˛Œ¥±ª Teleport Pro œ¬‘ÿ£¨“ÚŒ™ À¸Œª”⁄∆ ºµÿ÷∑“‘…Ë÷√µƒ±ﬂΩÁ“‘Õ‚µƒ”ÚªÚ¬∑æ∂÷–°£  \n\nƒ„œÎ“™¥”∑˛ŒÒ∆˜¥Úø™À¸¬?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7">
+                    <img border="0" src="../../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="phpË°å‰∏ö‰∫§ÊµÅ" title="phpË°å‰∏ö‰∫§ÊµÅ">
+                </a>
+            </p><br>
+            Powered by <a href="../../index.htm" tppabs="http://www.m-finder.com/" target="_blank">M-finder</a> 
+        </div>
+    </footer>
+	<script>
+	layui.use('element', function(){
+	  var element = layui.element;
+	});
+	</script>
+    </body>
+</html>

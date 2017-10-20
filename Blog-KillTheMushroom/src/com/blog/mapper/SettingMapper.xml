@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.dao.SettingMapper" >
+  <resultMap id="BaseResultMap" type="com.blog.model.Setting" >
+    <id column="settingId" property="settingId" jdbcType="INTEGER" />
+    <result column="keyword" property="keyword" jdbcType="VARCHAR" />
+    <result column="blogName" property="blogName" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="github" property="github" jdbcType="VARCHAR" />
+    <result column="mayun" property="mayun" jdbcType="VARCHAR" />
+    <result column="csdn" property="csdn" jdbcType="VARCHAR" />
+    <result column="tuling" property="tuling" jdbcType="VARCHAR" />
+    <result column="chatroomId" property="chatroomId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    settingId, keyword, blogName, description, title, logo, github, mayun, csdn, tuling, 
+    chatroomId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from setting
+    where settingId = #{settingId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from setting
+    where settingId = #{settingId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.blog.model.Setting" >
+    insert into setting (settingId, keyword, blogName, 
+      description, title, logo, 
+      github, mayun, csdn, 
+      tuling, chatroomId)
+    values (#{settingId,jdbcType=INTEGER}, #{keyword,jdbcType=VARCHAR}, #{blogName,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, 
+      #{github,jdbcType=VARCHAR}, #{mayun,jdbcType=VARCHAR}, #{csdn,jdbcType=VARCHAR}, 
+      #{tuling,jdbcType=VARCHAR}, #{chatroomId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.blog.model.Setting" >
+    insert into setting
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="settingId != null" >
+        settingId,
+      </if>
+      <if test="keyword != null" >
+        keyword,
+      </if>
+      <if test="blogName != null" >
+        blogName,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="logo != null" >
+        logo,
+      </if>
+      <if test="github != null" >
+        github,
+      </if>
+      <if test="mayun != null" >
+        mayun,
+      </if>
+      <if test="csdn != null" >
+        csdn,
+      </if>
+      <if test="tuling != null" >
+        tuling,
+      </if>
+      <if test="chatroomId != null" >
+        chatroomId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="settingId != null" >
+        #{settingId,jdbcType=INTEGER},
+      </if>
+      <if test="keyword != null" >
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="blogName != null" >
+        #{blogName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="github != null" >
+        #{github,jdbcType=VARCHAR},
+      </if>
+      <if test="mayun != null" >
+        #{mayun,jdbcType=VARCHAR},
+      </if>
+      <if test="csdn != null" >
+        #{csdn,jdbcType=VARCHAR},
+      </if>
+      <if test="tuling != null" >
+        #{tuling,jdbcType=VARCHAR},
+      </if>
+      <if test="chatroomId != null" >
+        #{chatroomId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.blog.model.Setting" >
+    update setting
+    <set >
+      <if test="keyword != null" >
+        keyword = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="blogName != null" >
+        blogName = #{blogName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="github != null" >
+        github = #{github,jdbcType=VARCHAR},
+      </if>
+      <if test="mayun != null" >
+        mayun = #{mayun,jdbcType=VARCHAR},
+      </if>
+      <if test="csdn != null" >
+        csdn = #{csdn,jdbcType=VARCHAR},
+      </if>
+      <if test="tuling != null" >
+        tuling = #{tuling,jdbcType=VARCHAR},
+      </if>
+      <if test="chatroomId != null" >
+        chatroomId = #{chatroomId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where settingId = #{settingId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.blog.model.Setting" >
+    update setting
+    set keyword = #{keyword,jdbcType=VARCHAR},
+      blogName = #{blogName,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      logo = #{logo,jdbcType=VARCHAR},
+      github = #{github,jdbcType=VARCHAR},
+      mayun = #{mayun,jdbcType=VARCHAR},
+      csdn = #{csdn,jdbcType=VARCHAR},
+      tuling = #{tuling,jdbcType=VARCHAR},
+      chatroomId = #{chatroomId,jdbcType=VARCHAR}
+    where settingId = #{settingId,jdbcType=INTEGER}
+  </update>
+</mapper>

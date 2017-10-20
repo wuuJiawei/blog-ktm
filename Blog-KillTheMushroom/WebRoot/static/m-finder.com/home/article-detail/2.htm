@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="cmn-CN">
+    <head>
+        <meta charset=UTF-8"utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="M-finder博客，laravel，layui，技术分享，原创"/>
+        <meta name="description" content="M-finder"/>
+        <meta name="csrf-token" content="GrrWtA1vTWDlXuXG42yHpPyrYd6Yvtav83BcGYKf">
+        <title>M-finder - 删繁就简,发现更多</title>
+		<script src="../../public/js/layui/layui.js" tppabs="http://www.m-finder.com/public/js/layui/layui.js"></script>
+        <script src="../../public/js/jquery-3.2.1.min.js" tppabs="http://www.m-finder.com/public/js/jquery-3.2.1.min.js"></script>
+        <script src="../../public/js/common.js" tppabs="http://www.m-finder.com/public/js/common.js"></script>
+		<script src="../../public/js/home.js" tppabs="http://www.m-finder.com/public/js/home.js"></script>
+		<script src="../../public/js/musicplayer.js" tppabs="http://www.m-finder.com/public/js/musicplayer.js"></script>
+		
+        <link href="../../public/js/layui/css/layui.css" tppabs="http://www.m-finder.com/public/js/layui/css/layui.css" rel="stylesheet">
+        <link href="../../public/css/global.css" tppabs="http://www.m-finder.com/public/css/global.css" rel="stylesheet">
+        <link href="../../public/css/home.css" tppabs="http://www.m-finder.com/public/css/home.css" rel="stylesheet">
+        <link rel="icon" href="http://www.m-finder.com/public/favicon.ico"> 
+		
+    </head>
+    <body class="home blog ">
+
+        <div class="hfeed site">
+            <header id="header" class="home-header blog-background banner-mask">
+                <div class="nav-header container">       
+                    <div class="nav-header-container" >
+                                                <a class="back-home" href="../../index.htm" tppabs="http://www.m-finder.com/" data-id="1">博客首页</a>
+                                                <a class="back-home" href="../category/2.htm" tppabs="http://www.m-finder.com/home/category/2" data-id="2">闲言赘语</a>
+                                                <a class="back-home" href="../category/3.htm" tppabs="http://www.m-finder.com/home/category/3" data-id="3">技术讨论</a>
+                                                <a class="back-home" href="../single-page/4.htm" tppabs="http://www.m-finder.com/home/single-page/4" data-id="4">关于</a>
+                                            </div>            
+                </div>
+                <div class="header-wrap">
+                    <div class="container">
+                        <div class="home-info-container">
+                            <a href="../../index.htm" tppabs="http://www.m-finder.com/">
+                                <h2>M-finder</h2>
+                            </a>
+                            <h4 id="web_title_desc">删繁就简,发现更多</h4>
+                                                        <div class='log-box'>
+                                <a class="reg" href="../../register.htm" tppabs="http://www.m-finder.com/register">注册</a>
+                                <a class="login" href="../../login.htm" tppabs="http://www.m-finder.com/login">登录</a>
+                            </div>
+                                                    </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="main layui-clear ">
+            
+<script id="comment_tpl" type="text/html">
+    <%# for(var i = 0; i < d.data.length; i++){ %>
+    <li id="comment-<% d.data[i].id %>"  class="comment even thread-even depth-1">
+        <article class="comment-body" id="comment">
+            <footer class="comment-meta">
+                <div class="comment-author vcard">
+                    <img src="<% d.data[i].avatar===null ? '/public/images/avatar/'+parseInt(11*Math.random()) +'.jpg' : d.data[i].avatar %>" width="64" height="64" alt="<% d.data[i].name %>" class="avatar avatar-42 wp-user-avatar wp-user-avatar-42 alignnone photo" />                    						
+                    <b class="fn"><% d.data[i].name %></b><span class="says">：</span>					
+                </div>
+                <div class="comment-metadata">
+                    <time datetime="<% d.data[i].creted_at %>"> <% layui.util.timeAgo(d.data[i].created_at) %> </time>
+                </div>
+            </footer>
+            <div class="comment-content">
+                <% d.data[i].content %>
+            </div>
+            <div class="reply">
+                <a rel="nofollow" class="comment-reply-link" href="javascript:void(0)" onclick="jump_comment(this)" data-uid="<% d.data[i].uid %>" data-name="<% d.data[i].name %>">回复</a>
+            </div>
+        </article>
+    </li>
+    <%# } %>
+</script>
+
+<div id="main" class="content homepage" data-id="3" data-aid="2">  
+    <div class="content-area container">
+        <div class="site-content" id="article_content">
+            <div class="content-area container">
+                <header class="entry-header page-header">
+                    <h1 class="entry-title page-title">Java 爬坑手册</h1>		
+                    <div class="entry-meta">
+                        <time class="entry-date published updated" datetime="2017-09-11 07:01:54">2017-09-11 07:01:54</time>			
+                        <span class="separator">/</span>
+                        121 阅		
+                        <span class="separator" >/</span>
+                        <span id='like_num'>6</span> 赞		
+                    </div>
+                </header>
+                <div class="site-content">
+                    <section class="post-content">
+                        <div class="single-post-inner grap detail-body photos">
+                            [pre]
+环境搭建
+[/pre]
+
+下载 JDK
+百度下就有下载地址 ， 但是最好还是根据自己的电脑系统位数下载对应版本 。
+[pre]
+配置系统变量
+[/pre]
+
+变量名：JAVA_HOME
+变量值：C:\Program Files (x86)\Java\jdk1.8.0_91 // 要根据自己的实际路径配置
+变量名：CLASSPATH
+变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar; //记得前面有个"."  
+变量名：Path
+变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+
+CLASSPATH 和 Path 需要填写上边 java_home 的实际路径  ， 即 %JAVA_HOME%  的实际路径。
+
+[pre]
+编辑器
+[/pre]
+
+NetBeans 8.2  or  IntelliJ IDEA 2017.2.3
+
+IDEA 激活listen地址 :  http://intellij.mandroid.cn/ 
+
+NetBeans 8.2 无法创建 javaweb 项目 
+
+在 NetBeans 安装目录下 ,  例如 : C:\Program Files\NetBeans 8.2\etc 文件夹下
+
+netbeans.conf 文件中 , 搜索 jdkhome ,  然后修改为当前安装的 jdk 路径 , 保存 , 重启编辑器即可。
+
+[pre]
+服务器
+[/pre]
+
+tomcat  or  jetty
+
+netbeans 安装时可以指定服务器
+
+需要注意的是 tomcat 的配置文件会有两个，因此改配置时需要改编辑器文件夹下的文件才能生效
+
+jetty 用于 IDEA，单独安装 ，在运行的小箭头后边可以添加使用
+
+[pre]
+运行测试  -- 以 netbeans 为例
+[/pre]
+
+新建项目  -- > 选择 java web  ,  然后填写项目信息 ， 然后选择 服务器和框架 
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-11-06-47-49-59b6319546a9d.png] 
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-11-06-47-57-59b6319d00ec4.png] 
+
+在 src / java 下新建包 net.controller
+
+然后新建类 HelloWorld 
+[pre]
+package net.controller;
+
+import java.util.List;
+import javax.annotation.Resource;
+import net.model.Users;
+import net.service.UsersService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class HelloWorld {
+
+    @Resource
+    private UsersService usersService;
+    
+    @RequestMapping(value = "hello")
+    public ModelAndView hello() {
+        ModelAndView modelAndView = new ModelAndView();
+        List user= usersService.findAll();
+        Users name = usersService.findById(1);
+        modelAndView.getModel().put("name", name);
+        modelAndView.addObject("userlist", user);
+        
+        Boolean dele = usersService.deleteUserById(2);
+        modelAndView.getModel().put("delete", dele);
+        return modelAndView;
+    }
+}
+[/pre]
+
+然后在 dispatcher-servlet 里添加
+
+[pre]
+<context:component-scan base-package = "net.controller,net.model,net.mapper,net.service"/> //动态装载
+    <mvc:annotation-driven /> //mvc支持
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mblog"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="/WEB-INF/mybatis-config.xml" />
+    </bean>
+    
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="net.mapper"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+[/pre]
+
+[pre]
+连接数据库
+[/pre]
+
+新建 --  通过数据库生成实体类
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-01-32-30-59b7392e52218.png] 
+
+需要配置一下数据库连接
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-01-32-47-59b7393fcc99e.png] 
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-01-32-54-59b7394666f0a.png] 
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-12-01-33-59-59b739876ffd1.png] 
+
+[pre]
+新建mapper
+[/pre]
+
+在net包下边新建mapper包，然后新建 UsersMapper.java 和 usersMapper.xml 
+
+UserMapper.java:
+
+[pre]
+package net.mapper;
+
+import java.util.List;
+import net.model.Users;
+
+public interface UsersMapper {
+
+    Users findById(int id);
+
+    List findAll();
+    
+    Boolean deleteUserById(int id);
+    
+    Boolean updateUserById(Users User);
+}
+
+[/pre]
+
+usersMapper.xml :
+
+[pre]
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="net.mapper.UsersMapper">
+   
+    <select id="findById" parameterType="int" resultType="Users">
+        select * from users where id = #{id}
+    </select>
+    
+    <select id="findAll" resultType="Users">
+        select * from users
+    </select>
+    
+    <delete id="deleteUserById" parameterType="int">
+        delete from users where id = #{id}
+    </delete>
+
+    <update id="updateUserById" parameterType="User">  
+        update users set name=#{name} where id=#{id}
+    </update>  
+    
+</mapper>
+
+[/pre]
+
+
+[pre]
+新建service
+[/pre]
+
+新建UsersService.java 和 UsersServiceImpl.java
+
+UsersService.java：
+[pre]
+package net.service;
+
+import java.util.List;
+import net.model.Users;
+
+public interface UsersService {
+    public Users findById(int id);
+    
+    public List findAll();
+    
+    public Boolean deleteUserById(int id);
+    
+    public Boolean updateUserById(Users User);
+}
+
+[/pre]
+
+UsersServiceImpl.java:
+[pre]
+package net.service;
+
+import java.util.List;
+import net.mapper.UsersMapper;
+import net.model.Users;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UsersServiceImpl implements UsersService{
+
+    @Autowired
+    private UsersMapper usersMapper;
+    
+    @Override
+    public Users findById(int id) {
+        return usersMapper.findById(id);
+    }
+
+    @Override
+    public List findAll() {
+        return usersMapper.findAll();
+    }
+
+    @Override
+    public Boolean deleteUserById(int id) {
+        return usersMapper.deleteUserById(id);
+    }
+
+    @Override
+    public Boolean updateUserById(Users User) {
+        return usersMapper.updateUserById(User);
+    }
+    
+}
+
+[/pre]
+
+再新建配置文件 mybatis-config.xml ：
+[pre]
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+  
+    <typeAliases>  
+        <typeAlias alias="Users" type="net.model.Users" />  
+    </typeAliases>  
+    <mappers>  
+        <mapper resource="net/mapper/usersMapper.xml" />  
+    </mappers>  
+  
+</configuration>   
+[/pre]
+
+然后hello.jsp 中调用数据 ：
+[pre]
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Welcome to Spring Web MVC project</title>
+    </head>
+
+    <body>
+        <p>Hello! ${name}.</p>
+        <p>${delete}</p>
+        <h1>Hello ${name.getName()}!</h1>
+        <c:forEach items="${userlist}" var="node">
+            <c:out value="${node.getName()}"></c:out><br/>
+        </c:forEach>
+    </body>
+</html>
+[/pre]
+
+
+[pre]
+2017/9/14 14：21 --  更新张截图，最后成功时所引入的包
+[/pre]
+
+img[http://www.m-finder.com/storage/app/public/articles/2017-09-14-06-22-41-59ba2031b01c2.png] 
+
+如果出现 Could not get JDBC Connection; nested exception is com.mysql.jdbc.exceptions 这个报错
+请检查你的 mysql 是否能够正常连接
+
+                        </div>
+                    </section>
+
+                    <div class="post-actions">
+                        <a href='javascript:;' onclick="like_this(this)" data-id="2"><i class="layui-icon"  style="font-size: 20px;  ">&#xe6c6;</i> </a> 
+                    </div>
+                    <div class="author-field u-textAlignCenter">
+                        <img src="../../storage/app/public/avatar/2017-09-11-07-28-08-59b63b08c7202.jpg" tppabs="http://www.m-finder.com/storage/app/public/avatar/2017-09-11-07-28-08-59b63b08c7202.jpg" width="64" height="64" alt="Finder" class="avatar avatar-64 wp-user-avatar wp-user-avatar-64 alignnone photo" />                    
+                        <h3>Finder</h3>
+                                                        <span class="layui-badge-rim layui-bg-orange">管理员 </span>
+                                                    <p>想弱弱的问下后台看到的200+用户都是活人吗？</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-content" style='padding-top:5px;'>
+            <div class="content-area container">
+                <div id="comments" class="comments-area">
+                    <h2 class="comments-title layui-hide " id='comment-title'> 条评论</h2>     
+                    <h2 class="comments-title layui-hide " id='comment-title' style="text-align: center">消灭零回复</h2>        
+                    <ol class="comment-list layui-hide "  id='comment_list'>
+         
+                    </ol>
+                    <section class="post-content" >
+                        <div class="single-post-inner grap">
+                            <div id="comment-page" data-total=""></div>
+                        </div>
+                    </section>
+                    <div id="respond" class="comment-respond">
+                        <h3 id="reply-title" class="comment-reply-title">发表评论 </h3>				
+                        <form id="commentform" class="comment-form">
+                            <p class="comment-form-comment">
+                                <textarea id="comment_text"  cols="45" rows="8" maxlength="65525" aria-required="true" class="layui-textarea fly-editor"></textarea>
+                                <input type="hidden" name="token" id="token" value="decbee81c97f76fd8c3519d28e93dfef">
+                            </p>
+                            <p class="form-submit">
+                                <input type="button"  onclick="submit_comment()" id="submit" class="submit-btn" value="发表评论"> 
+                            </p>				
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+        </div>
+		
+         
+		
+
+
+
+
+<div class="site-footer clearfix u-textAlignCenter footer-link ">
+                友情链接：
+        <span class="layui-breadcrumb" lay-separator="|" style="visibility: visible;">
+                            <a href="javascript:if(confirm('http://www.guojiawei.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.guojiawei.com/'" tppabs="http://www.guojiawei.com/"  target="_blank" >See You</a>
+                            <a href="javascript:if(confirm('http://fly.layui.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://fly.layui.com/'" tppabs="http://fly.layui.com/"  target="_blank" >fly社区</a>
+                            <a href="javascript:if(confirm('http://www.ok1219.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.ok1219.com/'" tppabs="http://www.ok1219.com/"  target="_blank" >IT宇宙人博客</a>
+                    </span>
+            </div>
+    <footer class="footer">
+        <div class="footavatar site-footer clearfix u-textAlignCenter">
+            <img src="../../public/images/logo.jpg" tppabs="http://www.m-finder.com/public/images/logo.jpg" alt="logo" title="logo" class="footphoto">     
+            <ul class="footinfo">
+                <p class="fname"><a>M-finder</a></p>
+                <p class="finfo">删繁就简,发现更多</p>
+            </ul>
+        </div>
+        <div class="Copyright">
+            <p>
+                <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=c4f068d3baefa9f0e31f6271d9bebe70e542830dd6e713d7689fd2a084a952e7">
+                    <img border="0" src="../../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="php行业交流" title="php行业交流">
+                </a>
+            </p><br>
+            Powered by <a href="../../index.htm" tppabs="http://www.m-finder.com/" target="_blank">M-finder</a> 
+        </div>
+    </footer>
+	<script>
+	layui.use('element', function(){
+	  var element = layui.element;
+	});
+	</script>
+    </body>
+</html>
